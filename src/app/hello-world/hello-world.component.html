@@ -11,4 +11,12 @@
       [t-columns]="colunas">
     </thf-grid>
   </div>
+  <div class="thf-upload">
+    <thf-upload
+      name="upload"
+      t-label="Totvs Upload"
+      (t-upload)="Upload($event)"
+      [t-url]=url>
+    </thf-upload>
+  </div>
 </thf-page-default>

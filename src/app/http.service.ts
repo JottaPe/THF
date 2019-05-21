@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-import { headersToString } from 'selenium-webdriver/http';
 
 @Injectable()
 export class HttpService {
+  uploadProgress: Observable<number>;
 
   configUrl = 'http://localhost:56758/api/contatoes';
 
@@ -20,7 +19,7 @@ export class HttpService {
       headers : new HttpHeaders({'Content-Type':'application/json'})
     }
 
-    return this.http.post(this.configUrl, object , httpOptions);
+    return this.http.post(this.configUrl, object , httpOptions).pipe();
   }
 
   // Método PUT de inclusão 
